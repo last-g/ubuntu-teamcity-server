@@ -1,6 +1,6 @@
 # docker run -dt -p 8111:8111 lastg/ubuntu14.04-teamcity-server
 
-FROM library/ubuntu:14.04
+FROM library/ubuntu:15.10
 
 MAINTAINER Last G <last_g@hackerdom.ru>
 
