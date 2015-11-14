@@ -16,5 +16,8 @@ ADD $TEAMCITY_DOWNLOAD/$TEAMCITY_PACKAGE $TEAMCITY_PACKAGE
 RUN tar zxf $TEAMCITY_PACKAGE -C /opt && \
     rm -rf $TEAMCITY_PACKAGE
 
+RUN cd /opt/TeamCity/webapps &&\
+  mv ROOT tc
+
 EXPOSE 8111
 CMD ["/opt/TeamCity/bin/teamcity-server.sh", "run"]
