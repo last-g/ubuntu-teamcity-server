@@ -1,4 +1,4 @@
-# docker run -dt -p 8111:8111 lastg/ubuntu14.04-teamcity-server
+# docker run -dt -p 8111:8111 lastg/ubuntu-teamcity-server
 
 FROM library/ubuntu:15.10
 
@@ -9,8 +9,10 @@ VOLUME  ["/var/teamcity"]
 ENV TEAMCITY_DATA_PATH /var/teamcity
 
 # Download and install TeamCity to /opt
-RUN apt-get update && apt-get -yy --force-yes dist-upgrade && apt-get install -yy --force-yes tar wget openjdk-8-jdk
-ENV TEAMCITY_PACKAGE TeamCity-9.1.3.tar.gz
+RUN apt-get update && apt-get -yy --force-yes dist-upgrade && apt-get install -yy --force-yes tar wget openjdk-8-jdk ca-certificates-java
+RUN update-ca-certificates -f
+
+ENV TEAMCITY_PACKAGE TeamCity-9.1.4.tar.gz
 ENV TEAMCITY_DOWNLOAD http://download.jetbrains.com/teamcity
 ADD $TEAMCITY_DOWNLOAD/$TEAMCITY_PACKAGE $TEAMCITY_PACKAGE
 RUN tar zxf $TEAMCITY_PACKAGE -C /opt && \
