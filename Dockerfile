@@ -9,7 +9,7 @@ VOLUME  ["/var/teamcity"]
 ENV TEAMCITY_DATA_PATH /var/teamcity
 
 # Download and install TeamCity to /opt
-RUN apt-get update && apt-get -yy --force-yes dist-upgrade && apt-get install -yy --force-yes tar wget openjdk-8-jdk ca-certificates-java
+RUN apt-get update && apt-get install -yy --force-yes tar wget openjdk-8-jdk ca-certificates-java
 RUN update-ca-certificates -f
 
 # Change teamcity version here for update
