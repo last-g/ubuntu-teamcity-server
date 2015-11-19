@@ -1,4 +1,4 @@
-# docker run -dt -p 8111:8111 lastg/ubuntu-teamcity-server
+# docker run -dt -p 8111:8111 --name teamcity-server lastg/ubuntu-teamcity-server
 
 FROM library/ubuntu:15.10
 
