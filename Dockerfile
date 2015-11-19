@@ -12,6 +12,7 @@ ENV TEAMCITY_DATA_PATH /var/teamcity
 RUN apt-get update && apt-get -yy --force-yes dist-upgrade && apt-get install -yy --force-yes tar wget openjdk-8-jdk ca-certificates-java
 RUN update-ca-certificates -f
 
+# Change teamcity version here for update
 ENV TEAMCITY_PACKAGE TeamCity-9.1.4.tar.gz
 ENV TEAMCITY_DOWNLOAD http://download.jetbrains.com/teamcity
 ADD $TEAMCITY_DOWNLOAD/$TEAMCITY_PACKAGE $TEAMCITY_PACKAGE
